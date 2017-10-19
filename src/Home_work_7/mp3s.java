@@ -28,14 +28,4 @@ public class mp3s {
     public String[] getPlaylist() {
         return playlist;
     }
-
-    public void displayInfo() {
-        System.out.println("Демонстрация работы объектов главного класса:");
-        System.out.println("Playing: " + getSong());
-        System.out.println("Плейлист: ");
-        for (int i = 0; i < 3; i++) {
-            System.out.print(" " + getPlaylist()[i]);
-        }
-        System.out.println("\n-------------------------------------------------");
-    }
 }
