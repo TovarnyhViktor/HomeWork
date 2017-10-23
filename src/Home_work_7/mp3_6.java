@@ -1,11 +1,8 @@
 package Home_work_7;
-import java.util.Random;
 public class mp3_6 extends mp3s {
     int r = 0+ (int)(Math.random()*2);
-    private final int cost;
-    public mp3_6(String song,String song2,String song3) {
-        super(song,song2,song3);
-        cost = 400;
+    public mp3_6(String song,String song2,String song3,int cost) {
+        super(song,song2,song3,cost);
         for (int i = 0; i < playlist.length; i++) {
             if (i == 0) {
                 playlist[i] = song;
@@ -28,7 +25,6 @@ public class mp3_6 extends mp3s {
     }
     public void shuffle(){
         int a = 0;
-        int b=r;
         int l;
         System.out.print("\nPlaying with shuffle: ");
             System.out.print(" " + getPlaylist()[r]+" ");
@@ -54,7 +50,7 @@ public class mp3_6 extends mp3s {
         }
     }
 
-    public int getCost3(){
+    public int getCost6(){
         return cost;
     }
 
