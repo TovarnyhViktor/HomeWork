@@ -1,24 +1,23 @@
 package Home_Work_9;
 
 public class MyArrayList {
-    public int listnumber=0;
-    public int[] myarraylist = new int[listnumber];
+    public int listnumber=1;
     public MyArrayList(){
-        }
+       // this.listnumber=listnumber;
+    }
+    public int[] myarraylist = new int[listnumber];
+
         public void add(int a){
-            for (int i=0;i<=myarraylist.length;i++){
-                if(i==myarraylist.length){
+            for (int i=0;i<myarraylist.length;i++){
+                if(i+1==myarraylist.length){
                     listnumber++;
-                    myarraylist[1]=a;
+                    listnumber++;
+                    int[] myarraylist1 = new int[listnumber];
+                    myarraylist1[2]=a;
                 }
             }
         }
-
-    public int[] getMyarraylist() {
-        return myarraylist;
-    }
-
     public void show(){
-
+      //  System.out.println();
     }
     }
