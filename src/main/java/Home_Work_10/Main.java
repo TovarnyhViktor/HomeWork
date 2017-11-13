@@ -11,12 +11,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    public static String datemain = "10/11/2017" ;
+    public static Date datemain = new Date();
+
     public static void main(String[] args) throws FileNotFoundException {
     //save();
     load();
         SimpleDateFormat format = new SimpleDateFormat ("dd-MM-yyyy");
-        String datemainn = args.length == 0 ? datemain : args[0];
+        //String datemainn = args.length == 0 ? datemain : args[0];
     }
 
 
