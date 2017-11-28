@@ -23,19 +23,20 @@ public class YouTubeFrame extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Pane root = new Pane();
-        TextField textSearching=new TextField("Liker");
+        TextField textSearching=new TextField("surfing");
         textSearching.setTranslateX(10);
         textSearching.setTranslateY(10);
         Button sendSearch = new Button("Search");
         sendSearch.setTranslateX(180);
         sendSearch.setTranslateY(10);
-        HttpResponse<String> result = YouTubeClient.getActivitiesString(25);
+        HttpResponse<String> result = YouTubeClient.getSearching(25);
+        System.out.println(result.getStatus());
         System.out.println(result.getBody());
         root.getChildren().addAll(textSearching,sendSearch);
         sendSearch.setOnMouseClicked((event -> {
             String searchingfinal = textSearching.getText();
             pool.submit(()->{
-                HttpResponse<YouTubeResponse> response =YouTubeClient.getActivities(25,searchingfinal,searchingfinal,searchingfinal);
+                HttpResponse<YouTubeResponse> response =YouTubeClient.getSearching1(25,"surfing");
 
                 System.out.println("Response Code"+ response.getStatus());
                 YouTubeResponse body = response.getBody();
@@ -51,7 +52,7 @@ public class YouTubeFrame extends Application {
 
     }
     void printResult(Pane root,YouTubeResponse response){
-       /* ImageView imageView = new ImageView();
+        /*ImageView imageView = new ImageView();
         imageView.setFitWidth(500);
         imageView.setFitWidth(500);
         root.getChildren().add(imageView);*/

@@ -6,20 +6,17 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
 public class YouTubeClient {
-    private static final String YOUTUBE="https://www.googleapis.com/youtube/v3/activities{method}";
+    private static final String YOUTUBE="https://www.googleapis.com/youtube/v3/{method}";
     private static final String YOUTUBE_KEY="AIzaSyDgk1XZHWW3nlN3f1Rx9rlktusHV-nBmYk";
     private YouTubeClient(){}
-    public static HttpResponse<YouTubeResponse> getActivities(int maxResults,String publishedAt,String title,String channelTitle){
+    public static HttpResponse<YouTubeResponse> getSearching1(int maxResults,String q){
         try {
-            Unirest.get(YOUTUBE)
+            return Unirest.get(YOUTUBE)
                     .routeParam("method","activities")
                     .queryString("type","search")
-                    .queryString("q","surfing")
+                    .queryString("q",q)
                     .queryString("maxResults",maxResults)
                     .queryString("part","snippet")
-                    .queryString("publishedAt",publishedAt)
-                    .queryString("title",title)
-                    .queryString("channelTitle",channelTitle)
                     .queryString("key",YOUTUBE_KEY)
                     .asObject(YouTubeResponse.class);
         } catch (UnirestException e) {
@@ -27,17 +24,13 @@ public class YouTubeClient {
         }
         return null;
     }
-    public static HttpResponse<String> getActivitiesString(int maxResults/*,String publishedAt,String title,String channelTitle*//*,String q*/){
+    public static HttpResponse<String> getSearching(int maxResults){
         try {
-            Unirest.get(YOUTUBE)
-                    .routeParam("method","activities")
-                    .queryString("type","")
-                    .queryString("q","Liker")
+            return Unirest.get(YOUTUBE)
+                    .routeParam("method","search")
+                    .queryString("q","surfing")
                     .queryString("maxResults",maxResults)
                     .queryString("part","snippet")
-                   /* .queryString("publishedAt",publishedAt)
-                    .queryString("title",title)
-                    .queryString("channelTitle",channelTitle)*/
                     .queryString("key",YOUTUBE_KEY)
                     .asString();
         } catch (UnirestException e) {
